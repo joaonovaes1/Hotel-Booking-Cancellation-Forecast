@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+boto3
+pandas
+jupyter
+scikit-learn
+mlflow
+kagglehub
