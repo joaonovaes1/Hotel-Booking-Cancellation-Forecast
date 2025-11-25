@@ -11,5 +11,5 @@ df = pd.read_csv(csv_path)
 
 df.to_csv("Hotel-Booking-Cancellation-Forecast/data/hotel_booking_demand.csv", index=False)
 
-print("Dataset salvo em data/hotel_booking_demand.csv")
+print("Dataset salvo em Hotel-Booking-Cancellation-Forecast/data/hotel_booking_demand.csv")
 print(df.head())
