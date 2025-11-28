@@ -6,3 +6,9 @@ jupyter
 scikit-learn
 mlflow
 kagglehub
+seaborn
+xgboost
+python-dotenv
+psycopg2
+scikit-learn
+SQLAlchemy

@@ -41,7 +41,6 @@ async def load_from_minio_to_neondb():
             raise Exception("NEON_DATABASE_URL is not set!")
         engine = create_engine(database_url)
     
-        # Salva no NeonDB (em uma tabela chamada hotel_bookings)
         df.to_sql("hotel_bookings", engine, if_exists="replace", index=False)
 
         return {"message": "Dados carregados com sucesso no NeonDB"}
