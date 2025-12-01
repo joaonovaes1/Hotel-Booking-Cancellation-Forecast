@@ -1,0 +1,10 @@
+artifact_location: file:c:/Users/marce/OneDrive/Dokumenti/GitHub/Hotel-Booking-Cancellation/Hotel-Booking-Cancellation-Forecast/notebooks/../mlruns/302172932396753588/models/m-64deb63c45c343528868e6c8fd8240ec/artifacts
+creation_timestamp: 1764615058982
+experiment_id: '302172932396753588'
+last_updated_timestamp: 1764615063399
+model_id: m-64deb63c45c343528868e6c8fd8240ec
+model_type: null
+name: rf_model
+source_run_id: 7577ea66be7f4225b0f4a5cf7f8c662e
+status: 2
+status_message: null

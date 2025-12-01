@@ -1,0 +1,22 @@
+artifact_path: file:c:/Users/marce/OneDrive/Dokumenti/GitHub/Hotel-Booking-Cancellation/Hotel-Booking-Cancellation-Forecast/notebooks/../mlruns/302172932396753588/models/m-a4dd5b191b2549f4905f77576dc656c0/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.12.6
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.6.1
+mlflow_version: 3.6.0
+model_id: m-a4dd5b191b2549f4905f77576dc656c0
+model_size_bytes: 14892651
+model_uuid: m-a4dd5b191b2549f4905f77576dc656c0
+prompts: null
+run_id: bbfcd4c69ba04f48a8044f18da05bcc6
+utc_time_created: '2025-12-01 18:57:23.540745'

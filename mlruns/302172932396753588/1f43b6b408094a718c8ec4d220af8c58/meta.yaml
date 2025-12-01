@@ -1,0 +1,14 @@
+artifact_uri: file:c:/Users/marce/OneDrive/Dokumenti/GitHub/Hotel-Booking-Cancellation/Hotel-Booking-Cancellation-Forecast/notebooks/../mlruns/302172932396753588/1f43b6b408094a718c8ec4d220af8c58/artifacts
+end_time: 1764617678013
+entry_point_name: ''
+experiment_id: '302172932396753588'
+lifecycle_stage: active
+run_id: 1f43b6b408094a718c8ec4d220af8c58
+run_name: City Hotel_SVM
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764615593419
+status: 3
+tags: []
+user_id: marce

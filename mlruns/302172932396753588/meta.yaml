@@ -1,0 +1,6 @@
+artifact_location: file:c:/Users/marce/OneDrive/Dokumenti/GitHub/Hotel-Booking-Cancellation/Hotel-Booking-Cancellation-Forecast/notebooks/../mlruns/302172932396753588
+creation_time: 1764607055056
+experiment_id: '302172932396753588'
+last_update_time: 1764607055056
+lifecycle_stage: active
+name: hotel_booking_cancellation_paper_baseline

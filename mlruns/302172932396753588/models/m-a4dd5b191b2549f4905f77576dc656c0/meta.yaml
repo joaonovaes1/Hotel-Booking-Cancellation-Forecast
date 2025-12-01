@@ -1,0 +1,10 @@
+artifact_location: file:c:/Users/marce/OneDrive/Dokumenti/GitHub/Hotel-Booking-Cancellation/Hotel-Booking-Cancellation-Forecast/notebooks/../mlruns/302172932396753588/models/m-a4dd5b191b2549f4905f77576dc656c0/artifacts
+creation_timestamp: 1764615443390
+experiment_id: '302172932396753588'
+last_updated_timestamp: 1764615447730
+model_id: m-a4dd5b191b2549f4905f77576dc656c0
+model_type: null
+name: svm_model
+source_run_id: bbfcd4c69ba04f48a8044f18da05bcc6
+status: 2
+status_message: null

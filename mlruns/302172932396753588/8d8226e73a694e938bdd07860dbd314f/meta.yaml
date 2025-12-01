@@ -1,0 +1,14 @@
+artifact_uri: file:c:/Users/marce/OneDrive/Dokumenti/GitHub/Hotel-Booking-Cancellation/Hotel-Booking-Cancellation-Forecast/notebooks/../mlruns/302172932396753588/8d8226e73a694e938bdd07860dbd314f/artifacts
+end_time: 1764614995296
+entry_point_name: ''
+experiment_id: '302172932396753588'
+lifecycle_stage: active
+run_id: 8d8226e73a694e938bdd07860dbd314f
+run_name: Resort Hotel_RandomForest
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764614973716
+status: 3
+tags: []
+user_id: marce

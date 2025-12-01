@@ -1,0 +1,10 @@
+artifact_location: file:c:/Users/marce/OneDrive/Dokumenti/GitHub/Hotel-Booking-Cancellation/Hotel-Booking-Cancellation-Forecast/notebooks/../mlruns/302172932396753588/models/m-b37538da321a42f69fd86c14607fdbd1/artifacts
+creation_timestamp: 1764615102451
+experiment_id: '302172932396753588'
+last_updated_timestamp: 1764615106094
+model_id: m-b37538da321a42f69fd86c14607fdbd1
+model_type: null
+name: xgb_model
+source_run_id: a6c32850f6064783b8f9a6f54dd4ad9e
+status: 2
+status_message: null

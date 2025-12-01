@@ -1,0 +1,14 @@
+artifact_uri: file:c:/Users/marce/OneDrive/Dokumenti/GitHub/Hotel-Booking-Cancellation/Hotel-Booking-Cancellation-Forecast/notebooks/../mlruns/302172932396753588/bbfcd4c69ba04f48a8044f18da05bcc6/artifacts
+end_time: 1764615447747
+entry_point_name: ''
+experiment_id: '302172932396753588'
+lifecycle_stage: active
+run_id: bbfcd4c69ba04f48a8044f18da05bcc6
+run_name: Resort Hotel_SVM
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764615106117
+status: 3
+tags: []
+user_id: marce

@@ -1,0 +1,14 @@
+artifact_uri: file:C:/Users/marce/OneDrive/Dokumenti/GitHub/Hotel-Booking-Cancellation/Hotel-Booking-Cancellation-Forecast/mlruns/471453401964798622/9757408573f243e2ac35488a525b553f/artifacts
+end_time: 1764624100429
+entry_point_name: ''
+experiment_id: '471453401964798622'
+lifecycle_stage: active
+run_id: 9757408573f243e2ac35488a525b553f
+run_name: Resort Hotel_MLP
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764624069553
+status: 3
+tags: []
+user_id: marce

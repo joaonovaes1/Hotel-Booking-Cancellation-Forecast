@@ -1,0 +1,14 @@
+artifact_uri: file:c:/Users/marce/OneDrive/Dokumenti/GitHub/Hotel-Booking-Cancellation/Hotel-Booking-Cancellation-Forecast/notebooks/../mlruns/302172932396753588/a6b43e47fff24b469e2d67b32cf3d32f/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '302172932396753588'
+lifecycle_stage: active
+run_id: a6b43e47fff24b469e2d67b32cf3d32f
+run_name: Resort Hotel_XGBoost
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764614995303
+status: 1
+tags: []
+user_id: marce
