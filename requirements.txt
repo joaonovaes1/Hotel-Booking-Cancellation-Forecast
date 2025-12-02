@@ -12,3 +12,5 @@ python-dotenv
 psycopg2
 scikit-learn
 SQLAlchemy
+streamlit
+plotly
