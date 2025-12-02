@@ -7,7 +7,7 @@ import plotly.express as px
 
 st.set_page_config(page_title="Hotel Booking Cancellation", layout="wide")
 
-# Sidebar de navegação
+
 st.sidebar.title("Navegação")
 page = st.sidebar.radio(
     "Ir para",
@@ -30,28 +30,41 @@ elif page == "Dados & IoT":
     load_dotenv()
     database_url = os.getenv("NEON_DATABASE_URL")
     engine = create_engine(database_url)
-    
-    # Métrica total
+
+    # ===================== MÉTRICA + TABELA =====================
     st.metric("Total registros validação", 18021)
-    
-    # Tabela das últimas linhas (manter)
-    recent_data = pd.read_sql("SELECT * FROM hotel_bookings_validation ORDER BY ts DESC LIMIT 100", engine)
-    st.dataframe(recent_data)
-    
-    # Série temporal de cancelamentos usando data de chegada da reserva
+
+    recent_data = pd.read_sql(
+        "SELECT * FROM hotel_bookings_validation ORDER BY ts DESC LIMIT 100",
+        engine,
+    )
+    st.dataframe(recent_data, use_container_width=True)
+
+    # ===================== SÉRIE TEMPORAL =====================
     df_val_full = pd.read_sql(
-        "SELECT arrival_date_year, arrival_date_month, arrival_date_day_of_month, is_canceled "
-        "FROM hotel_bookings_validation",
+        """
+        SELECT 
+            arrival_date_year, 
+            arrival_date_month, 
+            arrival_date_day_of_month, 
+            is_canceled,
+            hotel
+        FROM hotel_bookings_validation
+        """,
         engine,
     )
 
-    # Constrói uma coluna de data real
+    
     month_map = {
         "January": 1, "February": 2, "March": 3, "April": 4,
         "May": 5, "June": 6, "July": 7, "August": 8,
         "September": 9, "October": 10, "November": 11, "December": 12,
     }
-    df_val_full["month_num"] = df_val_full["arrival_date_month"].map(month_map)
+    if df_val_full["arrival_date_month"].dtype == "object":
+        df_val_full["month_num"] = df_val_full["arrival_date_month"].map(month_map)
+    else:
+        df_val_full["month_num"] = df_val_full["arrival_date_month"]
+
     df_val_full["date"] = pd.to_datetime(
         dict(
             year=df_val_full["arrival_date_year"],
@@ -67,33 +80,93 @@ elif page == "Dados & IoT":
     )
 
     st.subheader("Cancelamentos ao longo do tempo")
-    st.line_chart(time_cancel.set_index("date"))
 
+    fig_time = px.line(
+        time_cancel,
+        x="date",
+        y="canceladas",
+        title="Cancelamentos diários",
+    )
 
-    
-    # Gráficos lado a lado
+    fig_time.update_traces(line_color="#00C0F2", line_width=2)
+    fig_time.update_layout(
+        showlegend=False,
+        xaxis_title="Data",
+        yaxis_title="Reservas canceladas",
+        template="plotly_dark",
+        hovermode="x unified",
+        height=350,
+    )
+
+    st.plotly_chart(fig_time, use_container_width=True)
+
+    # ===================== GRÁFICOS DE DISTRIBUIÇÃO =====================
     col1, col2 = st.columns(2)
+
     
     with col1:
         cancel_query = """
         SELECT 
-            CASE WHEN is_canceled = 0 THEN 'Não cancelada' ELSE 'Cancelada' END as status,
-            COUNT(*) as count 
-        FROM hotel_bookings_validation 
+            CASE WHEN is_canceled = 0 THEN 'Não cancelada' ELSE 'Cancelada' END AS status,
+            COUNT(*) AS count
+        FROM hotel_bookings_validation
         GROUP BY is_canceled
         """
         cancel_dist = pd.read_sql(cancel_query, engine)
-        st.subheader("Distribuição das reservas")
 
-        cancel_dist = cancel_dist.set_index('status')
-        st.bar_chart(cancel_dist)  # sem transpor
+        fig_cancel = px.bar(
+            cancel_dist,
+            x="count",
+            y="status",
+            orientation="h",
+            title="Distribuição das reservas",
+            color="status",
+            color_discrete_map={
+                "Cancelada": "#00C0F2",      
+                "Não cancelada": "#7DD3FC",  
+            },
+        )
+        fig_cancel.update_layout(
+            template="plotly_dark",
+            showlegend=False,
+            xaxis_title="Quantidade",
+            yaxis_title="",
+            height=350,
+        )
+        st.plotly_chart(fig_cancel, use_container_width=True)
 
-    
+    # Tipos de hotel
     with col2:
-        # Hotéis - manter vertical
-        hotel_dist = pd.read_sql("SELECT hotel, COUNT(*) as count FROM hotel_bookings_validation GROUP BY hotel", engine)
-        st.subheader("Tipos de hotel")
-        st.bar_chart(hotel_dist.set_index('hotel'))
+        hotel_query = """
+        SELECT 
+            hotel,
+            COUNT(*) AS count
+        FROM hotel_bookings_validation
+        GROUP BY hotel
+        """
+        hotel_dist = pd.read_sql(hotel_query, engine)
+
+        fig_hotel = px.bar(
+            hotel_dist,
+            x="count",
+            y="hotel",
+            orientation="h",
+            title="Tipos de hotel",
+            color="hotel",
+            color_discrete_map={
+                "City Hotel": "#00C0F2",
+                "Resort Hotel": "#7DD3FC",
+            },
+        )
+        fig_hotel.update_layout(
+            template="plotly_dark",
+            showlegend=False,
+            xaxis_title="Quantidade",
+            yaxis_title="",
+            height=350,
+        )
+        st.plotly_chart(fig_hotel, use_container_width=True)
+
 
 
 elif page == "Modelos & MLflow":

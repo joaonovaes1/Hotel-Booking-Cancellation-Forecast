@@ -207,4 +207,93 @@ async def load_validation_to_neondb():
         raise HTTPException(status_code=500, detail=str(e))
 
 
+@app.post("/csv-full-to-minio/")
+async def csv_full_to_minio():
+    try:
+        # 1) localizar o CSV original
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        csv_path = os.path.normpath(os.path.join(base_dir, "..", "data", "hotel_bookings.csv"))
+
+        if not os.path.exists(csv_path):
+            raise Exception(f"Arquivo CSV não encontrado em: {csv_path}")
+
+        df = pd.read_csv(csv_path)
+        print(f"CSV original carregado com {len(df)} linhas")
+
+        # 2) salvar CSV temporário (se quiser pode usar o próprio csv_path)
+        local_csv_path = "/tmp/hotel_booking_demand_full.csv"
+        df.to_csv(local_csv_path, index=False)
+
+        # 3) enviar para MinIO
+        minio_client = Minio(
+            endpoint="localhost:9000",
+            access_key="admin",
+            secret_key="admin123",
+            secure=False,
+        )
+
+        bucket_name = "hotel-booking-data"
+        object_name = "hotel_booking_demand_full.csv"
+
+        if not minio_client.bucket_exists(bucket_name=bucket_name):
+            minio_client.make_bucket(bucket_name=bucket_name)
+
+        minio_client.fput_object(
+            bucket_name=bucket_name,
+            object_name=object_name,
+            file_path=local_csv_path,
+        )
+
+        return {
+            "message": "CSV COMPLETO enviado para o MinIO com sucesso",
+            "linhas": len(df),
+            "bucket": bucket_name,
+            "objeto": object_name,
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    
+    
+@app.post("/load-full-to-neondb/")
+async def load_full_to_neondb():
+    try:
+        # 1) conecta no MinIO
+        minio_client = Minio(
+            endpoint="localhost:9000",
+            access_key="admin",
+            secret_key="admin123",
+            secure=False,
+        )
+
+        bucket_name = "hotel-booking-data"
+        object_name = "hotel_booking_demand_full.csv"
+        local_file_path = "/tmp/hotel_booking_demand_full.csv"
+
+        # 2) baixa o CSV completo do MinIO
+        minio_client.fget_object(
+            bucket_name=bucket_name,
+            object_name=object_name,
+            file_path=local_file_path,
+        )
+
+        df = pd.read_csv(local_file_path)
+        print(f"CSV FULL baixado com {len(df)} linhas")
+
+        # 3) conecta no NeonDB
+        database_url = os.getenv("NEON_DATABASE_URL")
+        if database_url is None:
+            raise Exception("NEON_DATABASE_URL is not set!")
+        engine = create_engine(database_url)
+
+        # 4) grava na tabela principal (sobrescreve)
+        df.to_sql("hotel_bookings", engine, if_exists="replace", index=False)
+
+        return {
+            "message": "DADOS COMPLETOS carregados no NeonDB na tabela hotel_bookings",
+            "linhas": len(df),
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
 
