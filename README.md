@@ -29,6 +29,7 @@ O objetivo final é criar uma solução **automatizada e reprodutível** que:
 
 
 Instituição: CESAR School
+
 Disciplina: Aprendizado de Máquina - 2025.2
 
 ---
