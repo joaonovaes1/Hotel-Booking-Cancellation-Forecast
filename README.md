@@ -1,7 +1,3 @@
-Perfeito. Aqui está **seu README pronto**, no mesmo estilo do modelo, mas totalmente adaptado ao seu pipeline e ao nome do seu repositório.
-
----
-
 # **Hotel-Booking-Cancellation-Forecast**
 
 Pipeline End-to-End: IoT → Data Lake → Banco → Modelagem → MLflow → Dashboard
