@@ -1,0 +1,10 @@
+venv/
+.git
+__pycache__/
+mlruns/
+notebooks/
+*.ipynb_checkpoints
+Dockerfile
+Dockerfile.streamlit
+.gitignore
+.env

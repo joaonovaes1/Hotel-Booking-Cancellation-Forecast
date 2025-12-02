@@ -6,8 +6,9 @@ from sqlalchemy import create_engine
 from fastapi import HTTPException
 import requests
 import time
-
 from dotenv import load_dotenv
+
+MINIO_ENDPOINT = os.getenv("MINIO_ENDPOINT", "localhost:9000")
 load_dotenv() 
 
 app = FastAPI()
@@ -40,7 +41,7 @@ async def load_from_minio_to_neondb():
     try:
         
         minio_client = Minio(
-            endpoint="localhost:9000",
+            endpoint=MINIO_ENDPOINT,
             access_key="admin",
             secret_key="admin123",
             secure=False,
@@ -143,7 +144,7 @@ async def thingsboard_to_minio():
         df.to_csv(local_csv_path, index=False)
 
         minio_client = Minio(
-            endpoint="localhost:9000",
+            endpoint=MINIO_ENDPOINT,
             access_key="admin",
             secret_key="admin123",
             secure=False,
@@ -175,7 +176,7 @@ async def thingsboard_to_minio():
 async def load_validation_to_neondb():
     try:
         minio_client = Minio(
-            endpoint="localhost:9000",
+            endpoint=MINIO_ENDPOINT,
             access_key="admin",
             secret_key="admin123",
             secure=False,
@@ -211,8 +212,10 @@ async def load_validation_to_neondb():
 async def csv_full_to_minio():
     try:
         # 1) localizar o CSV original
-        base_dir = os.path.dirname(os.path.abspath(__file__))
-        csv_path = os.path.normpath(os.path.join(base_dir, "..", "data", "hotel_bookings.csv"))
+        #base_dir = os.path.dirname(os.path.abspath(__file__))
+        #csv_path = os.path.normpath(os.path.join(base_dir, "..", "data", "hotel_bookings.csv"))
+        csv_path = "/app/data/hotel_bookings.csv"
+
 
         if not os.path.exists(csv_path):
             raise Exception(f"Arquivo CSV não encontrado em: {csv_path}")
@@ -226,7 +229,7 @@ async def csv_full_to_minio():
 
         # 3) enviar para MinIO
         minio_client = Minio(
-            endpoint="localhost:9000",
+            endpoint=MINIO_ENDPOINT,
             access_key="admin",
             secret_key="admin123",
             secure=False,
@@ -259,7 +262,7 @@ async def load_full_to_neondb():
     try:
         # 1) conecta no MinIO
         minio_client = Minio(
-            endpoint="localhost:9000",
+            endpoint=MINIO_ENDPOINT,
             access_key="admin",
             secret_key="admin123",
             secure=False,
