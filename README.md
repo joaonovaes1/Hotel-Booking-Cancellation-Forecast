@@ -18,11 +18,14 @@ O objetivo final é criar uma solução **automatizada e reprodutível** que:
 # 👥 Equipe
 
 
-@vini: vini.ventura999@gmail.com
-@margi: gabrielgrmagalhaes@outlook.com
-@tuzi: arthurduartefreire@gmail.com
-mata: igorfwds@hotmail.com
-laura: lauravidal@outlook.com
+| Nome                  | E-mail                                                                  | GitHub                                |
+| --------------------- | ----------------------------------------------------------------------- | ------------------------------------- |
+| **Vinicius Ventura**  | [vini.ventura999@gmail.com](mailto:vini.ventura999@gmail.com)           | —                                     |
+| **Gabriel Magalhães** | [gabrielgrmagalhaes@outlook.com](mailto:gabrielgrmagalhaes@outlook.com) | —                                     |
+| **Arthur Freire**     | [arthurduartefreire@gmail.com](mailto:arthurduartefreire@gmail.com)     | —                                     |
+| **Igor Mata**         | [igorfwds@hotmail.com](mailto:igorfwds@hotmail.com)                     | —                                     |
+| **Laura Vidal**       | [lauravidal@outlook.com](mailto:lauravidal@outlook.com)                 | —                                     |
+
 
 Instituição: Instituição: CESAR School
 Disciplina: Aprendizado de Máquina - 2025.2
