@@ -64,23 +64,42 @@ Dashboard unificado consumindo:
 
 ```
 /
-├── docker-compose.yml       # Orquestração dos serviços
-├── scripts/                 # Scripts Python (envio ao ThingsBoard)
-│   └── send_to_thingsboard.py
-├── fastapi/                 # API responsável por leitura do TB e escrita no bucket
-├── buckets/                 # Estruturas de armazenamento no MinIO
-├── jupyterlab/              # Configurações do ambiente Jupyter
-├── notebooks/               # Notebooks principais
-│   ├── eda_and_cleaning.ipynb
-│   ├── model_training.ipynb
-│   ├── paper_reproduction.ipynb
-│   └── contributions.ipynb
-├── mlflow/                  # Configuração do servidor MLflow
-├── dashboard/               # Código/configuração do dashboard final
-└── README.md                # Documentação do projeto
+├── api/                                # FastAPI responsável por enviar dados ao bucket/MinIO
+│   ├── __pycache__/                    # Cache interno do Python
+│   ├── main.py                         # API principal (ingestão / integração ThingsBoard -> Bucket)
+│   └── data/
+│       └── hotel_bookings.csv          # Dataset base utilizado pela API
+│
+├── iot/
+│   └── send_csv_to_thingsboard.py      # Script Python que envia dados CSV diretamente ao ThingsBoard
+│
+├── mlruns/                             # Diretório gerado automaticamente pelo MLflow Tracking
+│   ├── .trash/                         # Experimentos deletados
+│   ├── 0/                              # Experimento "Default"
+│   ├── <run_id_1>/                     # Execuções rastreadas
+│   ├── <run_id_2>/
+│   └── models/                         # Artefatos de modelos versionados
+│
+├── notebooks/                          # Notebooks Jupyter para análise, modelagem e paper
+│   ├── 01_eda_baseline.ipynb           # Análise exploratória inicial
+│   └── 02_deep_analysis.ipynb          # Análise aprofundada, testes e modelagem
+│
+├── src/
+│   ├── mlflow_experiments/             # Scripts de experimentação e registro no MLflow
+│   └── validate_neondb.py              # Validação do banco NeonDB / infraestrutura externa (se aplicável)
+│
+├── venv/                               # Ambiente virtual Python usado no VS Code
+│   ├── Include/
+│   ├── Lib/
+│   ├── Scripts/
+│   └── etc/
+│
+├── .env                                # Variáveis de ambiente (ThingsBoard, Bucket, MLflow, MinIO)
+├── .gitignore
+├── LICENSE
+├── README.md                           # Documentação do projeto
+└── requirements.txt                    # Dependências Python
 ```
-
----
 
 # **Como Executar o Projeto**
 
