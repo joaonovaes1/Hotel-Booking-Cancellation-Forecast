@@ -21,9 +21,8 @@ O objetivo final é criar uma solução **automatizada e reprodutível** que:
 
 # 👥 Equipe
 
-*(Adicionar posteriormente)*
-Instituição: *—*
-Disciplina: *—*
+Instituição: Instituição: CESAR School
+Disciplina: Aprendizado de Máquina - 2025.2
 
 ---
 
