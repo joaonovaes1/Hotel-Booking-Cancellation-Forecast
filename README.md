@@ -28,7 +28,7 @@ O objetivo final é criar uma solução **automatizada e reprodutível** que:
 | **Laura Vidal**       | [lauravidal@outlook.com](mailto:lauravidal@outlook.com)                 | —                                     |
 
 
-Instituição: Instituição: CESAR School
+Instituição: CESAR School
 Disciplina: Aprendizado de Máquina - 2025.2
 
 ---
