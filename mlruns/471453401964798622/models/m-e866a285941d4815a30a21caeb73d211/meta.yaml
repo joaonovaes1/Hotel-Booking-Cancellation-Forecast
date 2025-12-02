@@ -1,0 +1,10 @@
+artifact_location: file:C:/Users/marce/OneDrive/Dokumenti/GitHub/Hotel-Booking-Cancellation/Hotel-Booking-Cancellation-Forecast/mlruns/471453401964798622/models/m-e866a285941d4815a30a21caeb73d211/artifacts
+creation_timestamp: 1764627427255
+experiment_id: '471453401964798622'
+last_updated_timestamp: 1764627430109
+model_id: m-e866a285941d4815a30a21caeb73d211
+model_type: null
+name: mlp_model
+source_run_id: 9c9205a47aaa4b25bea0e9a83e311a60
+status: 2
+status_message: null
