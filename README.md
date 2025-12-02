@@ -20,10 +20,11 @@ O objetivo final é criar uma solução **automatizada e reprodutível** que:
 
 | Nome                  | E-mail                                                                  | GitHub                                |
 | --------------------- | ----------------------------------------------------------------------- | ------------------------------------- |
+| **João Marcelo**      | [jmnfa@cesar.school](mailto:jmnfa@cesar.school)                         | —                                     |
 | **Vinicius Ventura**  | [vini.ventura999@gmail.com](mailto:vini.ventura999@gmail.com)           | —                                     |
 | **Gabriel Magalhães** | [gabrielgrmagalhaes@outlook.com](mailto:gabrielgrmagalhaes@outlook.com) | —                                     |
 | **Arthur Freire**     | [arthurduartefreire@gmail.com](mailto:arthurduartefreire@gmail.com)     | —                                     |
-| **Igor Mata**         | [igorfwds@hotmail.com](mailto:igorfwds@hotmail.com)                     | —                                     |
+| **Igor Wanderley**    | [igorfwds@hotmail.com](mailto:igorfwds@hotmail.com)                     | —                                     |
 | **Laura Vidal**       | [lauravidal@outlook.com](mailto:lauravidal@outlook.com)                 | —                                     |
 
 
