@@ -17,6 +17,13 @@ O objetivo final é criar uma solução **automatizada e reprodutível** que:
 
 # 👥 Equipe
 
+
+@vini: vini.ventura999@gmail.com
+@margi: gabrielgrmagalhaes@outlook.com
+@tuzi: arthurduartefreire@gmail.com
+mata: igorfwds@hotmail.com
+laura: lauravidal@outlook.com
+
 Instituição: Instituição: CESAR School
 Disciplina: Aprendizado de Máquina - 2025.2
 
